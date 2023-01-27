@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "name": "FRONTEND",
+      "path": "../tech-posts-frontend"
+    },
+    {
+      "name": "BACKEND",
+      "path": "../tech-posts-backend"
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.tsdk": "tech-posts-frontend/node_modules/typescript/lib",
+    "discord.enabled": true,
+    "thunder-client.saveToWorkspace": true,
+    "thunder-client.workspaceRelativePath": "../tech-posts-backend"
+  },
+  "extensions": {
+    "recommendations": [
+      "burkeholland.simple-react-snippets",
+      "irongeek.vscode-env",
+      "esbenp.prettier-vscode",
+      "dzannotti.vscode-babel-coloring",
+      "rangav.vscode-thunder-client",
+      "jabacchetta.javascript-snippets"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node-terminal",
+        "request": "launch",
+        "name": "BACKEND",
+        "cwd": "${workspaceFolder}/../tech-posts-backend",
+        "command": "yarn start:dev",
+        "autoAttachChildProcesses": true
+      }
+    ]
+  }
+}
