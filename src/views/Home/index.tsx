@@ -1,24 +1,35 @@
 import './Home.scss'
 import { useNavigate } from 'react-router-dom'
-import { Post } from '../../components/Post'
-import { Avatar } from '../../components/Avatar'
+import { Post } from '~/components/Post'
+import { Avatar } from '~/components/Avatar'
 import { IconLogout } from '~/components/icons/IconLogout'
 import { IconSearch } from '~/components/icons/IconSeach'
+import { useLocalStorage } from '~/hooks/useLocalStorage'
 
 export function Home() {
   const navigate = useNavigate()
+  const [, setSession] = useLocalStorage<IAuth>('session')
 
   return (
     <div className="home">
       <header>
-        <h1>Tech Inc</h1>
+        <div className="logo">
+          <img src="/static/img/logo-light.png" alt="company logo" />
+          <h1>Tech Inc</h1>
+        </div>
 
         <div className="search">
           <input type="text" placeholder="Buscar" />
           <IconSearch />
         </div>
 
-        <div className="logout" onClick={() => navigate('/login', { replace: true })}>
+        <div
+          className="logout"
+          onClick={() => {
+            setSession(null)
+            navigate('/login', { replace: true })
+          }}
+        >
           <IconLogout />
         </div>
       </header>

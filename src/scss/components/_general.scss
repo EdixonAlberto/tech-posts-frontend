@@ -1,3 +1,46 @@
 .t-icon {
   width: 24px;
 }
+
+.t-button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.15s ease-in-out 0s all;
+
+  &.solid {
+    background: $color-grey;
+
+    span {
+      color: $color-purple;
+    }
+  }
+
+  &.regular {
+    border: 2px solid $color-grey;
+    background: transparent;
+
+    span {
+      color: $color-grey;
+    }
+  }
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 50%;
+    transform: none;
+  }
+
+  .loading {
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import './Post.scss'
+import { useState } from 'react'
 import { Avatar } from '~/components/Avatar'
 import { IconMenu } from '~/components/icons/IconMenu'
 import { IconHeart } from '~/components/icons/IconHeart'
-import { useState } from 'react'
 
 interface IPostProps {
   image?: string

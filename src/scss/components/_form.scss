@@ -1,0 +1,46 @@
+.t-input {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  background: $color-grey;
+  border-radius: 5px;
+
+  .icon {
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-black;
+    border-radius: 5px 0 0 5px;
+
+    .t-icon {
+      width: 18px;
+      fill: $color-grey;
+    }
+  }
+
+  input {
+    width: calc(100% - 60px);
+    height: 100%;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: inherit;
+    background: $color-grey;
+
+    &::placeholder {
+      color: $color-purple;
+    }
+  }
+}
+
+.t-checkbox {
+  margin-right: auto;
+
+  input {
+    margin-right: 10px;
+  }
+}
