@@ -1,0 +1,123 @@
+.home {
+  height: 100%;
+  background: $color-grey;
+
+  & > header {
+    width: 100%;
+    height: $height-header;
+    padding: 0 45px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-purple;
+
+    .t-icon {
+      fill: $color-purple;
+    }
+
+    .search {
+      width: 200px;
+      height: 40px;
+      margin-left: 50px;
+      padding: 5px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-grey;
+      border-radius: 5px;
+
+      input {
+        width: calc(100% - 25px);
+        border: none;
+        background: inherit;
+
+        &::placeholder {
+          color: $color-purple;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .logout {
+      width: 80px;
+      height: 40px;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-grey;
+      border-radius: 5px;
+      transition: 0.15s ease-in-out 0s all;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  main {
+    padding-top: $height-header + 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .posts {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile {
+      width: 40%;
+      position: fixed;
+      margin-top: 20px;
+      top: 80px;
+      right: 0;
+
+      p {
+        margin: 0;
+        margin-top: 10px;
+        color: $color-black;
+
+        &:first-child {
+          font-weight: 600;
+        }
+      }
+
+      hr {
+        border: 1px solid $color-purple;
+      }
+    }
+  }
+}
+
+// @media screen and (max-width: 1350px) {
+//   .home main .profile {
+//     width: 340px;
+//     position: relative;
+//   }
+// }
+
+// @media screen and (max-width: 900px) {
+//   .home header {
+//     width: 440px;
+//     position: fixed;
+//     right: 0;
+//   }
+
+//   /* .home main {
+//     flex-direction: column-reverse;
+//     align-items: center;
+//   } */
+
+//   .home main .profile {
+//     position: relative;
+//     margin-bottom: 30px;
+//   }
+// }

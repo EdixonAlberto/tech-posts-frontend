@@ -1,0 +1,34 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  img {
+    border: 2px solid $color-purple;
+    border-radius: 50%;
+
+    &.big {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.small {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  span {
+    margin-left: 10px;
+    color: $color-black;
+    font-weight: 600;
+
+    &.big {
+      font-size: 20px;
+    }
+
+    &.small {
+      font-size: 12px;
+    }
+  }
+}

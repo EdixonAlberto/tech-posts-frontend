@@ -1,0 +1,72 @@
+.post {
+  width: 440px;
+  height: auto;
+  margin-bottom: 10px;
+  background: $color-white;
+  border: 1px solid $color-white;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px $color-purple;
+
+  header,
+  footer,
+  div:not(.image-post) {
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+
+  header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .t-icon {
+      fill: $color-white !important;
+    }
+  }
+
+  .image-post {
+    width: 100%;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .like {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    .t-icon {
+      fill: $color-black;
+      cursor: pointer;
+      transition: 0.15s ease-in-out 0s transform;
+
+      &.solid {
+        fill: #f23c46;
+      }
+
+      &:hover {
+        fill: #f23c46;
+        transform: scale(1.2);
+      }
+    }
+
+    span {
+      user-select: none;
+      color: $color-black;
+    }
+  }
+
+  .content {
+    color: $color-black;
+  }
+
+  footer {
+    height: 18px;
+    font-size: 14px;
+    text-align: right;
+    text-transform: uppercase;
+  }
+}

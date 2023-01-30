@@ -36,7 +36,8 @@
       "esbenp.prettier-vscode",
       "dzannotti.vscode-babel-coloring",
       "rangav.vscode-thunder-client",
-      "jabacchetta.javascript-snippets"
+      "jabacchetta.javascript-snippets",
+      "naumovs.color-highlight"
     ]
   },
   "launch": {
