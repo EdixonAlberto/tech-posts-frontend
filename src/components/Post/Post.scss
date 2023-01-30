@@ -9,7 +9,7 @@
 
   header,
   footer,
-  div:not(.image-post) {
+  div:not(.image-post):not(.image) {
     padding: 0 10px;
     margin: 10px 0;
   }
@@ -20,8 +20,8 @@
     align-items: center;
     justify-content: space-between;
 
-    .t-icon {
-      fill: $color-white !important;
+    .avatar {
+      width: 90%;
     }
   }
 

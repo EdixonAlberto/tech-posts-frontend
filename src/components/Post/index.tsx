@@ -8,7 +8,7 @@ interface IPostProps {
   image?: string
 }
 
-export function Post({ image = '/static/img/banner-default.png' }: IPostProps) {
+export function Post({ image = '/static/img/default-banner.png' }: IPostProps) {
   const [like, setLike] = useState(false)
 
   return (
