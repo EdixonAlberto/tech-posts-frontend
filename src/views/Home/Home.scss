@@ -1,3 +1,5 @@
+$size-margintop: 60px;
+
 .home {
   height: 100%;
   background: $color-grey;
@@ -11,6 +13,7 @@
     align-items: center;
     justify-content: center;
     background: $color-purple;
+    z-index: 1000;
 
     .t-icon {
       fill: $color-purple;
@@ -73,16 +76,25 @@
   }
 
   main {
-    $size-margintop: 40px;
-
-    padding-top: $height-header + $size-margintop;
+    height: 100%;
+    padding-top: $height-header;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 
+    .new-post {
+      width: 60%;
+      padding-top: $height-header;
+      margin-bottom: 100px;
+      display: flex;
+      flex-direction: column;
+    }
+
     .posts {
       width: 60%;
+      height: 100vh;
+      margin-bottom: 100px;
       display: flex;
       flex-direction: column;
     }
@@ -90,14 +102,23 @@
     .profile {
       width: 40%;
       margin-top: 25px;
+      padding-right: 80px;
       position: fixed;
-      top: 80px + $size-margintop;
+      top: $height-header + $size-margintop;
       right: 0;
 
-      p {
+      .content {
         margin: 0;
-        margin-top: 10px;
-        color: $color-black;
+        margin-top: 20px;
+
+        p {
+          margin: 5px 0;
+          color: $color-black;
+
+          &:nth-child(1) {
+            text-transform: uppercase;
+          }
+        }
 
         &:first-child {
           font-weight: 600;
@@ -110,28 +131,3 @@
     }
   }
 }
-
-// @media screen and (max-width: 1350px) {
-//   .home main .profile {
-//     width: 340px;
-//     position: relative;
-//   }
-// }
-
-// @media screen and (max-width: 900px) {
-//   .home header {
-//     width: 440px;
-//     position: fixed;
-//     right: 0;
-//   }
-
-//   /* .home main {
-//     flex-direction: column-reverse;
-//     align-items: center;
-//   } */
-
-//   .home main .profile {
-//     position: relative;
-//     margin-bottom: 30px;
-//   }
-// }

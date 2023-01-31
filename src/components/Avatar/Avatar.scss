@@ -1,17 +1,40 @@
+$height-deafault-avatar: 50px;
+
 .avatar {
   width: max-content;
-  height: 100%;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  column-gap: 10px;
+
+  &.big {
+    .image {
+      width: 60px;
+      height: 60px;
+    }
+
+    .info span {
+      font-size: 24px;
+    }
+  }
+
+  &.small {
+    .image {
+      width: $height-deafault-avatar;
+      height: $height-deafault-avatar;
+    }
+
+    .info span {
+      font-size: 18px;
+    }
+  }
 
   .image {
-    width: 50px;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: 4px solid $color-purple;
+    outline: 3px solid $color-purple;
     border: 2px solid transparent;
     border-radius: 50%;
 
@@ -21,30 +44,20 @@
       height: 100%;
       fill: $color-black;
     }
-
-    &.big {
-      width: 60px;
-      height: 60px;
-    }
-
-    &.small {
-      width: 45px;
-      height: 45px;
-    }
   }
 
-  span {
+  .info {
     user-select: none;
-    margin-left: 10px;
-    color: $color-black;
-    font-weight: 600;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    row-gap: 5px;
 
-    &.big {
-      font-size: 24px;
-    }
-
-    &.small {
-      font-size: 18px;
+    span {
+      color: $color-black;
+      font-weight: 600;
     }
   }
 }

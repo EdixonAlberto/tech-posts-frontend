@@ -1,7 +1,7 @@
 .post {
   width: 440px;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   background: $color-white;
   border: 1px solid $color-white;
   border-radius: 5px;
@@ -9,9 +9,13 @@
 
   header,
   footer,
-  div:not(.image-post):not(.image) {
-    padding: 0 10px;
+  .container-content {
     margin: 10px 0;
+    padding: 0 10px;
+  }
+
+  span {
+    color: $color-black;
   }
 
   header {
@@ -23,6 +27,45 @@
     .avatar {
       width: 90%;
     }
+
+    .menu {
+      cursor: pointer;
+      position: relative;
+
+      .dropdown-menu {
+        list-style: none;
+        padding: 15px;
+        margin: 0;
+        display: none;
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        background: $color-black;
+        border-radius: 5px;
+
+        &.active {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          row-gap: 8px;
+        }
+
+        li {
+          width: 100%;
+          padding: 8px 10px;
+          transition: 0.15s ease-in 0s all;
+          background: transparent;
+          border-radius: 5px;
+
+          &:hover {
+            background: $color-white;
+            color: $color-black;
+            opacity: 80%;
+          }
+        }
+      }
+    }
   }
 
   .image-post {
@@ -33,40 +76,172 @@
     background-size: cover;
   }
 
-  .like {
+  .container-content {
     display: flex;
-    align-items: center;
-    column-gap: 10px;
 
-    .t-icon {
-      fill: $color-black;
-      cursor: pointer;
-      transition: 0.15s ease-in-out 0s transform;
-
-      &.solid {
-        fill: #f23c46;
-      }
-
-      &:hover {
-        fill: #f23c46;
-        transform: scale(1.2);
-      }
-    }
-
-    span {
-      user-select: none;
-      color: $color-black;
+    .message {
+      margin: 20px 0;
     }
   }
 
-  .content {
-    color: $color-black;
+  .like-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .like {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      column-gap: 10px;
+
+      .t-icon {
+        fill: $color-black;
+        cursor: pointer;
+        transition: 0.15s ease-in-out 0s transform;
+
+        &.solid {
+          fill: #f23c46;
+        }
+
+        &:hover {
+          fill: #f23c46;
+          transform: scale(1.2);
+        }
+      }
+
+      span {
+        user-select: none;
+      }
+    }
+
+    .location {
+      user-select: none;
+      width: max-content;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 5px;
+      border-radius: 5px;
+
+      .t-icon {
+        width: 14px;
+        fill: $color-purple;
+      }
+    }
   }
 
   footer {
-    height: 18px;
-    font-size: 14px;
-    text-align: right;
-    text-transform: uppercase;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      font-size: 14px;
+      text-align: right;
+      text-transform: uppercase;
+      color: $color-black;
+    }
+
+    .t-badge {
+      padding: 5px 20px;
+      background: $color-black;
+      text-transform: capitalize;
+    }
+
+    .status select {
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.post.mode-input {
+  border: none;
+
+  .attention {
+    outline: 3px solid $color-purple;
+
+    select,
+    input[type='text'],
+    textarea {
+      width: 100%;
+      height: 100%;
+      border: none;
+      outline: none;
+      background: $color-grey;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  header .menu {
+    padding-right: 0;
+
+    .control {
+      cursor: default;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 20px;
+
+      .loading {
+        position: relative;
+        right: 0;
+      }
+
+      .t-icon {
+        transition: 0.15s ease-in-out 0s transform;
+        width: 30px;
+
+        &.save {
+          fill: #70b934;
+        }
+        &.cancel {
+          fill: #d94a38;
+        }
+      }
+
+      &.active .t-icon {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+
+  .image-post {
+    margin: auto;
+    position: relative;
+    background: $color-grey;
+    text-align: center;
+    line-height: 300px;
+
+    input {
+      width: max-content;
+    }
+  }
+
+  .message {
+    padding: 0 !important;
+    display: flex;
+
+    textarea {
+      resize: none;
+      width: 100%;
+      padding: 10px;
+    }
+  }
+
+  footer {
+    margin: 20px 0;
   }
 }

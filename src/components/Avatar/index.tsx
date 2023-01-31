@@ -2,19 +2,21 @@ import './Avatar.scss'
 import { IconAvatar } from '~/components/icons/IconAvatar'
 
 interface IAvatarProps {
-  image?: string
+  user: IUser
   bigSize?: boolean
-  username?: string
 }
 
-export function Avatar({ image = '', bigSize = false, username = 'username' }: IAvatarProps) {
-  return (
-    <div className="avatar">
-      <div className={'image ' + (bigSize ? 'big' : 'small')}>
-        {image ? <img src={image} alt="avatar" draggable="false" /> : <IconAvatar />}
-      </div>
+export function Avatar({ user, bigSize }: IAvatarProps) {
+  const { avatar = '', username, role } = user
 
-      <span className={bigSize ? 'big' : 'small'}>@{username}</span>
+  return (
+    <div className={'avatar ' + (bigSize ? 'big' : 'small')}>
+      <div className="image">{avatar ? <img src={avatar} alt="avatar" draggable="false" /> : <IconAvatar />}</div>
+
+      <div className="info">
+        <span>@{username}</span>
+        <div className="t-badge">{role}</div>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,13 @@
 import './Signup.scss'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+
 import { LayoutAuth } from '~/views/Auth/LayoutAuth'
 import { IconUser } from '~/components/icons/IconUser'
+import { IconLoading } from '~/components/icons/IconLoading'
 import { useRequest } from '~/hooks/useRequest'
 import { useLocalStorage } from '~/hooks/useLocalStorage'
+import { Role } from '~/entities/enums'
 
 export function Signup() {
   const [requestCreateUser, user, loadingCreateUser, errorCreateUser] = useRequest<IUser>('POST', '/users')
@@ -13,15 +16,17 @@ export function Signup() {
   const [, setSession] = useLocalStorage<IAuth>('session')
   const navigate = useNavigate()
 
-  async function submitHandler(e: any): Promise<void> {
+  async function submitHandler(e: TEventForm): Promise<void> {
     e.preventDefault()
+    if (loading) return
 
-    const [username, name, surname] = e.target as { [key: string]: { value: string } }[]
+    const [username, name, surname, role] = e.target as unknown as { [key: string]: { value: string } }[]
 
     await requestCreateUser({
       username: username.value,
       name: name.value,
-      surname: surname.value
+      surname: surname.value,
+      role: role.value ? Role.Admin : Role.User
     })
   }
 
@@ -74,16 +79,21 @@ export function Signup() {
         </div>
 
         <div className="t-checkbox">
+          <input type="checkbox" name="role" />
+          <span>Rol Admin</span>
+        </div>
+
+        <div className="t-checkbox">
           <input type="checkbox" name="terms" />
           <span>Estoy de acuerdo con los términos y condiciones</span>
         </div>
 
         <button className="t-button solid" type="submit">
           <span>Registrar</span>
-          <div className={'loading' + (loading ? ' active' : '')}>loading</div>
+          {loading && <IconLoading />}
         </button>
 
-        <Link to="/login">Ya tienes una cuenta ?</Link>
+        <Link to="/login">Ya tengo una cuenta</Link>
       </form>
     </LayoutAuth>
   )
