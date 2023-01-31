@@ -1,7 +1,12 @@
 {
   "name": "tech-posts-frontend",
   "private": true,
-  "version": "0.0.0",
+  "description": "App Web para la administración de publicaciones",
+  "version": "0.0.1",
+  "author": {
+    "name": "Edixon Piña",
+    "email": "edixonalbertto@gmail.com"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
