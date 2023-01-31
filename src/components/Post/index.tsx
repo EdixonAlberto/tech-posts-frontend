@@ -20,7 +20,7 @@ interface IPostProps {
 }
 
 export function Post(props: IPostProps) {
-  const [post, setPost] = useState(props.post)
+  const [post, setPost] = useState<IPost>(props.post)
   const [session] = useLocalStorage<IAuth>('session')
   const [like, setLike] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
@@ -185,9 +185,14 @@ export function Post(props: IPostProps) {
       {modeInput ? (
         <div className="image-post attention">
           <input
-            type="file"
-            accept="image/gif, image/jpeg, image/png"
+            type="text"
+            // TODO: Preparar backend con MULTER para subir imagenes locales
+            // type="file"
+            // accept="image/gif, image/jpeg, image/png"
+            defaultValue={post.image}
             disabled={loading}
+            placeholder={modeCreate ? 'Ingresar URL de la imagen' : ''}
+            autoFocus
             onInput={({ target }: TEventInput) => populatePost('image', target.value)}
           />
         </div>
@@ -218,6 +223,7 @@ export function Post(props: IPostProps) {
                 type="text"
                 defaultValue={post.location}
                 disabled={loading}
+                placeholder={modeCreate ? 'Ingresar ubicación' : ''}
                 onInput={({ target }: TEventInput) => populatePost('location', target.value)}
               />
             ) : (
@@ -232,6 +238,7 @@ export function Post(props: IPostProps) {
               rows={3}
               defaultValue={post.message}
               disabled={loading}
+              placeholder={modeCreate ? 'Ingresar mensaje' : ''}
               onInput={({ target }: TEventInput) => populatePost('message', target.value)}
             />
           ) : (

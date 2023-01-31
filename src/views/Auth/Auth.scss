@@ -17,13 +17,22 @@
     background: $color-purple;
     border-radius: 20px;
 
-    .logo {
-      margin: auto;
+    .container-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 50px;
 
       img {
         width: 100px;
         height: 100px;
         margin-bottom: 10px;
+        border-radius: 50%;
+      }
+
+      .logo {
+        margin: auto;
+        text-align: center;
       }
 
       h2 {

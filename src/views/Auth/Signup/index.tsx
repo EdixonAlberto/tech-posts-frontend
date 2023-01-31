@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { LayoutAuth } from '~/views/Auth/LayoutAuth'
 import { IconUser } from '~/components/icons/IconUser'
 import { IconLoading } from '~/components/icons/IconLoading'
+import { IconImage } from '~/components/icons/IconImage'
 import { useRequest } from '~/hooks/useRequest'
 import { useLocalStorage } from '~/hooks/useLocalStorage'
 import { Role } from '~/entities/enums'
@@ -13,6 +14,9 @@ export function Signup() {
   const [requestCreateUser, user, loadingCreateUser, errorCreateUser] = useRequest<IUser>('POST', '/users')
   const [requestAuth, auth, loadingAuth, errorAuth] = useRequest<IAuth>('POST', '/auth')
   const [loading, setLoading] = useState<boolean>(false)
+  const [isRoleAdmin, setIsRoleAdmin] = useState<boolean>(false)
+  const [avatar, setAvatar] = useState<string>('')
+  const [username, setUsername] = useState<string>('')
   const [, setSession] = useLocalStorage<IAuth>('session')
   const navigate = useNavigate()
 
@@ -20,14 +24,15 @@ export function Signup() {
     e.preventDefault()
     if (loading) return
 
-    const [username, name, surname, role] = e.target as unknown as { [key: string]: { value: string } }[]
+    const [name, surname] = e.target as unknown as { [key: string]: { value: string } }[]
 
     await requestCreateUser({
-      username: username.value,
+      avatar: avatar || undefined,
+      username: username,
       name: name.value,
       surname: surname.value,
-      role: role.value ? Role.Admin : Role.User
-    })
+      role: isRoleAdmin ? Role.Admin : undefined
+    } as unknown as Partial<IUser>)
   }
 
   useEffect(() => {
@@ -55,13 +60,31 @@ export function Signup() {
   }, [errorCreateUser, errorAuth])
 
   return (
-    <LayoutAuth className="signup">
+    <LayoutAuth className="signup" avatar={avatar} username={username || 'Username'}>
       <form onSubmit={submitHandler}>
+        <div className="t-input">
+          <div className="icon">
+            <IconImage />
+          </div>
+          <input
+            type="text"
+            // TODO: Preparar backend con MULTER para subir imagenes locales
+            // type="file"
+            // accept="image/gif, image/jpeg, image/png"
+            placeholder="URL del avatar"
+            onInput={({ target }: TEventInput) => setAvatar(target.value)}
+          />
+        </div>
+
         <div className="t-input">
           <div className="icon">
             <IconUser />
           </div>
-          <input type="text" name="username" placeholder="Nombre de Usuario" />
+          <input
+            type="text"
+            placeholder="Nombre de Usuario"
+            onInput={({ target }: TEventInput) => setUsername(target.value)}
+          />
         </div>
 
         <div className="t-input">
@@ -79,7 +102,7 @@ export function Signup() {
         </div>
 
         <div className="t-checkbox">
-          <input type="checkbox" name="role" />
+          <input type="checkbox" onInput={() => setIsRoleAdmin(!isRoleAdmin)} />
           <span>Rol Admin</span>
         </div>
 

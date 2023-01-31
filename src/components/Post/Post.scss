@@ -73,7 +73,7 @@
     height: 300px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
 
   .container-content {
@@ -227,6 +227,7 @@
 
     input {
       width: max-content;
+      padding: 10px;
     }
   }
 

@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { Navigate } from 'react-router-dom'
+
 import { useLocalStorage } from '~/hooks/useLocalStorage'
 
 interface IAuthProps extends PropsWithChildren {}

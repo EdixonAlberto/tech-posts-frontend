@@ -57,6 +57,10 @@ $size-margintop: 60px;
       }
     }
 
+    .t-checkbox {
+      margin-left: 40px;
+    }
+
     .logout {
       width: 80px;
       height: 40px;
@@ -93,7 +97,6 @@ $size-margintop: 60px;
 
     .posts {
       width: 60%;
-      height: 100vh;
       margin-bottom: 100px;
       display: flex;
       flex-direction: column;

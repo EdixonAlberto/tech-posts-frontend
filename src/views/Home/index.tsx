@@ -14,6 +14,9 @@ import { Role, Status } from '~/entities/enums'
 export function Home() {
   const navigate = useNavigate()
   const [refresh, setRefresh] = useState<boolean>(false)
+  const [inputSearch, setInputSearch] = useState<string>('')
+  const [showPostsPublished, setShowPostsPublished] = useState<boolean>(false)
+  const [postsFiltered, setPostsFiltered] = useState<IPost[]>([])
   const [session, setSession] = useLocalStorage<IAuth>('session')
   const [request, posts, loadingPosts, errorPosts] = useRequest<IPost[]>('GET', '/posts')
 
@@ -29,7 +32,17 @@ export function Home() {
     updatedAt: new Date().toString()
   } as IPost
 
-  function searchPost(message: string) {}
+  useEffect(() => {
+    if (posts) {
+      setPostsFiltered(
+        posts!.filter(post => {
+          const isMessage = post.message.includes(inputSearch)
+          const isPublished = showPostsPublished ? post.status === Status.Published : true
+          return isMessage && isPublished
+        })
+      )
+    }
+  }, [inputSearch, showPostsPublished])
 
   useEffect(() => {
     if (!posts || refresh) {
@@ -37,6 +50,12 @@ export function Home() {
       setRefresh(false)
     }
   }, [refresh])
+
+  useEffect(() => {
+    if (posts) {
+      setPostsFiltered(posts)
+    }
+  }, [posts])
 
   return (
     <div className="home">
@@ -47,8 +66,13 @@ export function Home() {
         </div>
 
         <div className="search">
-          <input type="text" placeholder="Buscar" onInput={({ target }: TEventInput) => searchPost(target.value)} />
+          <input type="text" placeholder="Buscar" onInput={({ target }: TEventInput) => setInputSearch(target.value)} />
           <IconSearch />
+        </div>
+
+        <div className="t-checkbox">
+          <input type="checkbox" onInput={() => setShowPostsPublished(!showPostsPublished)} />
+          <span>Mostrar solo mensajes aprobados</span>
         </div>
 
         <div
@@ -76,7 +100,9 @@ export function Home() {
         <div className="posts">
           {loadingPosts && 'Cargando posts...'}
 
-          {showPosts ? posts.map(post => <Post key={post._id} post={post} refresh={() => setRefresh(true)} />) : null}
+          {showPosts
+            ? postsFiltered.map(post => <Post key={post._id} post={post} refresh={() => setRefresh(true)} />)
+            : null}
 
           {!loadingPosts && !posts?.length && 'No hay publicaciones para mostrar'}
         </div>
@@ -88,7 +114,7 @@ export function Home() {
             <p>
               {userSession.name} {userSession.surname}
             </p>
-            <p>{posts ? posts.length : 0} Publicaciones</p>
+            <p>{posts ? posts.length : 0} Publicaciones en total</p>
             <p>Cuenta creada el {moment(userSession.createAt).format('DD/MM/YYYY')}</p>
           </div>
 
