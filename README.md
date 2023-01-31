@@ -1,7 +1,7 @@
 # Tech Posts Frontend
 
 <p align="center">
-  <a href="https://reactjs.org/" target="blank"><img src="./src/assets/react.svg" width="200" alt="React Logo" /></a>
+  <a href="https://reactjs.org/" target="blank"><img src="./docs/react.svg" width="200" alt="React Logo" /></a>
 </p>
 
 ## Descripción
@@ -43,3 +43,11 @@ Realice un fork al proyecto en el branch `develop`, introdusca sus cambios y cre
 - yarn v1.22.19
 - vite v4.0.0
 - React v18.2.0
+
+## Interfaces de usuario
+
+![Signup](./docs/signup.png)
+
+![Login](./docs/login.png)
+
+![Home](./docs/home.png)
