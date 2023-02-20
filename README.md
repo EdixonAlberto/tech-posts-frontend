@@ -12,7 +12,8 @@ App Web para la administración de publicaciones.
 
 ## Inicio
 
-Para empezar primero instalale las depedencias con yarn, copie el [template](./.env.template) con las variables de entorno en la raiz del proyecto y ejecute el comando `dev`.
+Primero instale las depedencias con yarn y luego copie el [template](./.env.template) con las variables de entorno en la
+raiz del proyecto y ejecute el comando `dev`.
 
 ```bash
 yarn install
@@ -31,11 +32,15 @@ yarn build
 
 # Previsualizar en modo producción
 yarn preview
+
+# Formatear todo el código usando prettier
+yarn format
 ```
 
 ## Contribuir
 
-Realice un fork al proyecto en el branch `develop`, introdusca sus cambios y cree un `Pull Request` hacia el branch `main`.
+Realice un fork al proyecto en el branch `develop`, introdusca sus cambios y cree un `Pull Request` hacia el branch
+`main`.
 
 > NOTA: Este proyecto ha sido construido y probado usando el siguiente conjunto de tecnologías:
 

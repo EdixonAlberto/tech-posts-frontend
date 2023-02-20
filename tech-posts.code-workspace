@@ -23,6 +23,9 @@
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "typescript.tsdk": "tech-posts-frontend/node_modules/typescript/lib",
     "discord.enabled": true,

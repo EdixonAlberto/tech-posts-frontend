@@ -24,7 +24,7 @@ export function Signup() {
     e.preventDefault()
     if (loading) return
 
-    const [name, surname] = e.target as unknown as { [key: string]: { value: string } }[]
+    const { name, surname } = e.target as unknown as { [key: string]: { value: string } }
 
     await requestCreateUser({
       avatar: avatar || undefined,
