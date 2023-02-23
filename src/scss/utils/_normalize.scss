@@ -1,5 +1,11 @@
 * {
-  box-sizing: border-box;
   // This helps in the layout of the page
   // outline: 1px solid red !important;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $color-grey;
 }

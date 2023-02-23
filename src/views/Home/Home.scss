@@ -20,6 +20,7 @@ $size-margintop: 60px;
     }
 
     .logo {
+      user-select: none;
       display: flex;
       align-items: center;
       justify-content: flex-start;

@@ -38,9 +38,11 @@
 }
 
 .t-checkbox {
+  user-select: none;
   margin-right: auto;
 
   input {
+    cursor: pointer;
     margin-right: 10px;
   }
 }
