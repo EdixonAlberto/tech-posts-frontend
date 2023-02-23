@@ -1,0 +1,115 @@
+{
+  "users": [
+    {
+      "_id": 1,
+      "username": "ratione",
+      "name": "Kaley",
+      "surname": "Bradtke",
+      "role": "admin",
+      "createdAt": "2023-02-23T01:57:34.648Z",
+      "updatedAt": "2023-02-23T01:57:34.648Z"
+    }
+  ],
+  "posts": [
+    {
+      "_id": 1,
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg ",
+      "message": "Quis velit illo odit. Consequuntur fugiat adipisci natus. Possimus esse et. Aut omnis rerum et quis.",
+      "likes": [],
+      "author": {
+        "role": "user",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/677.jpg",
+        "username": "voluptatem",
+        "name": "Josie",
+        "surname": "Johnson",
+        "createdAt": "2023-02-22T23:11:14.443Z",
+        "updatedAt": "2023-02-22T23:11:14.443Z",
+        "_id": 2
+      },
+      "location": "American Samoa",
+      "status": "drafted",
+      "createdAt": "2023-01-10T15:33:01.513Z",
+      "updatedAt": "2023-01-10T15:33:01.513Z"
+    },
+    {
+      "_id": 2,
+      "image": "",
+      "message": "Ex recusandae ratione eos non. Est assumenda sint beatae laudantium laboriosam et et voluptatum repellendus. Soluta facere provident. Perspiciatis harum doloribus dicta. Molestiae sed eaque iure.",
+      "likes": [],
+      "author": {
+        "role": "user",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/678.jpg",
+        "username": "consequatur",
+        "name": "Daren",
+        "surname": "Zemlak",
+        "createdAt": "2023-02-22T23:11:14.443Z",
+        "updatedAt": "2023-02-22T23:11:14.443Z",
+        "_id": 3
+      },
+      "location": "Avon",
+      "status": "deleted",
+      "createdAt": "2023-02-20T15:33:01.513Z",
+      "updatedAt": "2023-02-20T15:33:01.513Z"
+    },
+    {
+      "_id": 3,
+      "image": "https://static.nationalgeographicla.com/files/styles/image_3200/public/05_nationalgeographic_2711495.jpg?w=1600&h=900",
+      "message": "maiores et voluptatem",
+      "likes": [],
+      "author": {
+        "role": "user",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/817.jpg",
+        "username": "ullam",
+        "name": "Esther",
+        "surname": "Pfeffer",
+        "createdAt": "2023-02-22T23:11:14.443Z",
+        "updatedAt": "2023-02-22T23:11:14.443Z",
+        "_id": 3
+      },
+      "location": "Barbados",
+      "status": "published",
+      "createdAt": "2023-03-05T15:33:01.513Z",
+      "updatedAt": "2023-03-05T15:33:01.513Z"
+    },
+    {
+      "_id": 4,
+      "image": "https://universidadeuropea.com/resources/media/images/deporte_alto_rendimiento.original.jpg",
+      "message": "Sunt et accusantium et. Soluta accusantium aut dolor qui occaecati maiores eaque. Sunt vel officiis quam quisquam et iusto cum soluta. Autem dolores dignissimos blanditiis nihil quasi. Corporis beatae et fuga ut atque voluptas et quia.",
+      "likes": [],
+      "author": {
+        "role": "user",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/858.jpg",
+        "username": "magni",
+        "name": "Cullen",
+        "surname": "Langworth",
+        "createdAt": "2023-07-21T23:11:14.443Z",
+        "updatedAt": "2023-07-20T23:11:14.443Z",
+        "_id": 4
+      },
+      "location": "Sudan",
+      "status": "drafted",
+      "createdAt": "2023-04-14T15:33:01.513Z",
+      "updatedAt": "2023-04-14T15:33:01.513Z"
+    },
+    {
+      "_id": 5,
+      "image": "https://definicion.de/wp-content/uploads/2010/01/transito.jpg",
+      "message": "Et magnam harum possimus. Et pariatur est tempore quibusdam. Libero eos consectetur facere. Natus modi dolor sed temporibus at. Voluptas earum tempora aut. Modi reprehenderit molestias beatae exercitationem quia accusantium.",
+      "likes": [],
+      "author": {
+        "role": "user",
+        "avatar": "",
+        "username": "quia",
+        "name": "Deon",
+        "surname": "Corkery",
+        "createdAt": "2023-01-31T15:33:01.513Z",
+        "updatedAt": "2023-01-31T17:05:21.761Z",
+        "_id": 1
+      },
+      "location": "Saudi Arabia",
+      "status": "published",
+      "createdAt": "2023-05-17T15:33:01.513Z",
+      "updatedAt": "2023-05-17T15:33:01.513Z"
+    }
+  ]
+}
