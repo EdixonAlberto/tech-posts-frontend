@@ -5,10 +5,10 @@
   align-items: center;
   column-gap: 10px;
   background: $color-grey;
-  border-radius: 5px;
+  border-radius: 8px 5px 5px 8px;
 
   .icon {
-    height: 100%;
+    height: calc(100% + 2px);
     width: 60px;
     display: flex;
     align-items: center;

@@ -12,6 +12,7 @@ import { useRequest } from '~/hooks/useRequest'
 import { Role, Status } from '~/entities/enums'
 
 export function Home() {
+  const { VITE_ENV } = import.meta.env
   const navigate = useNavigate()
   const [refresh, setRefresh] = useState<boolean>(false)
   const [inputSearch, setInputSearch] = useState<string>('')
@@ -86,12 +87,8 @@ export function Home() {
         </div>
       </header>
 
-      <main
-        style={{
-          paddingTop: userSession.role === Role.Admin ? 160 : 80
-        }}
-      >
-        {userSession.role === Role.User && (
+      <main>
+        {VITE_ENV !== 'demo' && userSession.role === Role.User && (
           <div className="new-post">
             <Post modeCreate={true} post={postDefault} refresh={() => setRefresh(true)} />
           </div>
@@ -100,16 +97,20 @@ export function Home() {
         <div className="posts">
           {loadingPosts && 'Cargando posts...'}
 
-          {showPosts
-            ? postsFiltered.map(post => <Post key={post._id} post={post} refresh={() => setRefresh(true)} />)
-            : null}
+          {showPosts ? (
+            <>
+              <h2>Posts</h2>
+              {postsFiltered.map(post => (
+                <Post key={post._id} post={post} refresh={() => setRefresh(true)} />
+              ))}
+            </>
+          ) : null}
 
           {!loadingPosts && !posts?.length && 'No hay publicaciones para mostrar'}
         </div>
 
         <div className="profile">
           <Avatar user={userSession} bigSize={true} />
-
           <div className="content">
             <p>
               {userSession.name} {userSession.surname}
@@ -117,7 +118,6 @@ export function Home() {
             <p>{posts ? posts.length : 0} Publicaciones en total</p>
             <p>Cuenta creada el {moment(userSession.createAt).format('DD/MM/YYYY')}</p>
           </div>
-
           <hr />
         </div>
       </main>

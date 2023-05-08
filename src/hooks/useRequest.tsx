@@ -14,8 +14,10 @@ type TErrorApi = Error &
     statusCode: number
   }>
 
+const { VITE_ENV, VITE_API_URL } = import.meta.env
+
 const httpClient: AxiosInstance = Axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/api`
+  baseURL: VITE_ENV === 'demo' ? '/static/db.json' : `${VITE_API_URL}/api`
 })
 
 export function useRequest<D>(method: Method, endpoint: string): TRequestHook<D> {
@@ -29,14 +31,22 @@ export function useRequest<D>(method: Method, endpoint: string): TRequestHook<D>
       setData(null)
       setError('')
       setLoading(true)
-      const { data } = await httpClient<D>(endpoint, {
-        method,
-        data: body,
-        headers: {
-          Authorization: `Bearer ${session?.accessToken}`
-        }
-      })
-      setData(data)
+
+      if (VITE_ENV === 'demo') {
+        const { data: dataJSON } = await httpClient<{ [key: string]: object | object[] }>('')
+        const [, resource] = endpoint.split('/')
+        const data = dataJSON[resource] as D
+        setData(data)
+      } else {
+        const { data } = await httpClient<D>(endpoint, {
+          method,
+          data: body,
+          headers: {
+            Authorization: `Bearer ${session?.accessToken}`
+          }
+        })
+        setData(data)
+      }
     } catch (err) {
       const error = err as TErrorApi
       const errorMessage = error.response ? error.response.data.message : error.message

@@ -1,11 +1,23 @@
 {
+  "auth": {
+    "accessToken": "1234",
+    "user": {
+      "_id": 1,
+      "username": "ratione",
+      "name": "Kaley",
+      "surname": "Bradtke",
+      "role": "user",
+      "createdAt": "2023-02-23T01:57:34.648Z",
+      "updatedAt": "2023-02-23T01:57:34.648Z"
+    }
+  },
   "users": [
     {
       "_id": 1,
       "username": "ratione",
       "name": "Kaley",
       "surname": "Bradtke",
-      "role": "admin",
+      "role": "user",
       "createdAt": "2023-02-23T01:57:34.648Z",
       "updatedAt": "2023-02-23T01:57:34.648Z"
     }
@@ -26,7 +38,7 @@
         "updatedAt": "2023-02-22T23:11:14.443Z",
         "_id": 2
       },
-      "location": "American Samoa",
+      "location": "American Samo",
       "status": "drafted",
       "createdAt": "2023-01-10T15:33:01.513Z",
       "updatedAt": "2023-01-10T15:33:01.513Z"

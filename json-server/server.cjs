@@ -7,6 +7,7 @@ const router = jsonServer.router(resolve('json-server', 'db.json'))
 // Set default middlewares (logger, static, cors and no-cache)
 const middlewares = jsonServer.defaults()
 
+// Middlewares
 server.use(middlewares)
 server.use(jsonServer.bodyParser)
 

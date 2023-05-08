@@ -91,7 +91,7 @@ $size-margintop: 60px;
     .new-post {
       width: 60%;
       padding-top: $height-header;
-      margin-bottom: 100px;
+      margin-bottom: 40px;
       display: flex;
       flex-direction: column;
     }
@@ -101,6 +101,10 @@ $size-margintop: 60px;
       margin-bottom: 100px;
       display: flex;
       flex-direction: column;
+
+      h2 {
+        color: $color-black;
+      }
     }
 
     .profile {
